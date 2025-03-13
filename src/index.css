@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
 
-    --primary: 262 83% 75%; /* Based on mosaic-purple */
+    --primary: 267 90% 65%; /* Enhanced primary color (more vibrant) */
     --primary-foreground: 210 20% 98%;
 
     --secondary: 220 14.3% 95.9%;
@@ -25,7 +25,7 @@
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 220 8.9% 46.1%;
 
-    --accent: 262 83% 94%; /* Lighter version of primary */
+    --accent: 267 90% 94%; /* Enhanced accent color */
     --accent-foreground: 220.9 39.3% 11%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,18 +33,18 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 262 83% 75%;
+    --ring: 267 90% 65%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 262 83% 75%;
+    --sidebar-primary: 267 90% 65%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 262 83% 75%;
+    --sidebar-ring: 267 90% 65%;
   }
 
   .dark {
@@ -57,7 +57,7 @@
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 20% 98%;
 
-    --primary: 262 83% 75%;
+    --primary: 267 90% 65%;
     --primary-foreground: 210 20% 98%;
 
     --secondary: 215 27.9% 16.9%;
@@ -74,7 +74,7 @@
 
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
-    --ring: 263.4 70% 50.4%;
+    --ring: 267 90% 65%;
   }
 }
 
@@ -94,11 +94,15 @@
 
 @layer utilities {
   .gradient-text {
-    @apply bg-gradient-to-r from-mosaic-purple to-mosaic-lavender text-transparent bg-clip-text;
+    @apply bg-gradient-to-r from-mosaic-purple to-mosaic-coral text-transparent bg-clip-text;
+  }
+
+  .fancy-gradient-text {
+    @apply bg-gradient-to-r from-mosaic-purple via-mosaic-magenta to-mosaic-coral text-transparent bg-clip-text;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply transition-all duration-500 hover:shadow-xl hover:-translate-y-2;
   }
 
   .glass-card {
@@ -106,30 +110,82 @@
   }
 
   .hero-gradient {
-    background: linear-gradient(to right bottom, rgba(155, 135, 245, 0.8), rgba(214, 188, 250, 0.4));
+    background: linear-gradient(to right bottom, rgba(155, 87, 247, 0.9), rgba(255, 89, 248, 0.7));
   }
 
   .mosaic-grid-bg {
     background-size: 20px 20px;
-    background-image: linear-gradient(to right, rgba(155, 135, 245, 0.1) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(155, 135, 245, 0.1) 1px, transparent 1px);
+    background-image: linear-gradient(to right, rgba(155, 87, 247, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(155, 87, 247, 0.1) 1px, transparent 1px);
   }
 
   .grid-pattern-sm {
     background-size: 10px 10px;
-    background-image: linear-gradient(to right, rgba(155, 135, 245, 0.1) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(155, 135, 245, 0.1) 1px, transparent 1px);
+    background-image: linear-gradient(to right, rgba(155, 87, 247, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(155, 87, 247, 0.1) 1px, transparent 1px);
   }
 
   .grid-pattern-md {
     background-size: 20px 20px;
-    background-image: linear-gradient(to right, rgba(155, 135, 245, 0.1) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(155, 135, 245, 0.1) 1px, transparent 1px);
+    background-image: linear-gradient(to right, rgba(155, 87, 247, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(155, 87, 247, 0.1) 1px, transparent 1px);
   }
 
   .grid-pattern-lg {
     background-size: 40px 40px;
-    background-image: linear-gradient(to right, rgba(155, 135, 245, 0.1) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(155, 135, 245, 0.1) 1px, transparent 1px);
+    background-image: linear-gradient(to right, rgba(155, 87, 247, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(155, 87, 247, 0.1) 1px, transparent 1px);
+  }
+  
+  .shiny-card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shiny-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    transition: transform 0.5s;
+  }
+  
+  .shiny-card:hover::before {
+    transform: rotate(30deg) translate(100%, 100%);
+  }
+  
+  .rainbow-border {
+    position: relative;
+  }
+  
+  .rainbow-border::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, 
+      #FF84A1, #9b57f7, #7F7CFE, #4CEFD7, #C1F459, #FFDC60, #FF6B5B
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .rainbow-border:hover::after {
+    opacity: 1;
   }
 }

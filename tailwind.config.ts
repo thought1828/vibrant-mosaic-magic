@@ -63,17 +63,23 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom mosaic theme colors
+				// Enhanced mosaic theme colors with more vibrant options
 				mosaic: {
-					purple: '#9b87f5',
+					purple: '#9b57f7', // More vibrant purple
 					lavender: '#d6bcfa',
 					dark: '#1A1F2C',
-					peach: '#FDE1D3',
-					blue: '#D3E4FD',
-					pink: '#FFDEE2',
-					yellow: '#FEF7CD',
-					teal: '#8CD9CF',
-					coral: '#FF7F6B',
+					peach: '#FFB5A0', // More vibrant peach
+					blue: '#7BD5F5', // More vibrant blue
+					pink: '#FF84A1', // More vibrant pink
+					yellow: '#FFDC60', // More vibrant yellow
+					teal: '#4CEFD7', // More vibrant teal
+					coral: '#FF6B5B', // More vibrant coral
+					magenta: '#FF59F8', // New vibrant magenta
+					cyan: '#36F9F9', // New vibrant cyan
+					lime: '#C1F459', // New vibrant lime
+					amber: '#FFAA33', // New vibrant amber
+					indigo: '#7F7CFE', // New vibrant indigo
+					emerald: '#45EFC5', // New vibrant emerald
 				},
 			},
 			borderRadius: {
