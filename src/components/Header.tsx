@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Image, Grid3X3, FileImage, User, LogIn, Menu, X } from 'lucide-react';
+import { Image, Grid3X3, FileImage, User, Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { 
   Drawer,
@@ -10,6 +10,7 @@ import {
   DrawerContent,
   DrawerTrigger
 } from "@/components/ui/drawer";
+import { LoginButton, SignupButton } from './auth/AuthDialogs';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,9 +36,7 @@ const Header = () => {
         
         {/* Desktop Action Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <Button variant="outline" className="hidden md:flex">
-            <LogIn className="mr-2 h-4 w-4" /> Log In
-          </Button>
+          <LoginButton />
           <Button className="bg-mosaic-purple hover:bg-mosaic-purple/90">
             <FileImage className="mr-2 h-4 w-4" /> Create Mosaic
           </Button>
@@ -71,9 +70,7 @@ const Header = () => {
                 </Link>
                 
                 <div className="border-t border-gray-200 my-2 pt-4 flex flex-col space-y-3">
-                  <Button variant="outline" className="w-full justify-center">
-                    <LogIn className="mr-2 h-4 w-4" /> Log In
-                  </Button>
+                  <LoginButton />
                   <Button className="w-full justify-center bg-gradient-to-r from-mosaic-purple to-mosaic-pink hover:opacity-90">
                     <FileImage className="mr-2 h-4 w-4" /> Create Mosaic
                   </Button>
