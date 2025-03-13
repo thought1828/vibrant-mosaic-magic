@@ -1,19 +1,28 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Image, Grid3X3, FileImage, User, LogIn, Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { 
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTrigger
+} from "@/components/ui/drawer";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
-  return <header className="w-full py-4 px-6 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+
+  return (
+    <header className="w-full py-4 px-6 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
           <div className="relative w-10 h-10 flex items-center justify-center rounded-md bg-gradient-to-br from-mosaic-purple to-mosaic-lavender overflow-hidden">
-            <Grid3X3 size={24} className="" />
+            <Grid3X3 className="text-white" size={24} />
           </div>
-          <span className="text-xl md:text-2xl font-display font-bold gradient-text mx-0">MosaicMagic</span>
+          <span className="text-xl md:text-2xl font-display font-bold gradient-text">MosaicMagic</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -35,9 +44,14 @@ const Header = () => {
         </div>
         
         {/* Mobile Menu Trigger */}
-        {isMobile && <Drawer>
+        {isMobile && (
+          <Drawer>
             <DrawerTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="md:hidden"
+              >
                 <Menu className="h-6 w-6 text-mosaic-purple" />
               </Button>
             </DrawerTrigger>
@@ -72,13 +86,21 @@ const Header = () => {
                 </DrawerClose>
               </div>
             </DrawerContent>
-          </Drawer>}
+          </Drawer>
+        )}
         
         {/* Mobile Create Button (Always Visible) */}
-        {isMobile && <Button size="sm" className="md:hidden bg-gradient-to-r from-mosaic-purple to-mosaic-pink hover:opacity-90">
+        {isMobile && (
+          <Button 
+            size="sm"
+            className="md:hidden bg-gradient-to-r from-mosaic-purple to-mosaic-pink hover:opacity-90"
+          >
             <FileImage className="mr-2 h-4 w-4" /> Create
-          </Button>}
+          </Button>
+        )}
       </div>
-    </header>;
+    </header>
+  );
 };
+
 export default Header;
