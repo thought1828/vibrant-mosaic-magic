@@ -48,21 +48,15 @@ const HeroSection = () => {
                 />
               </div>
               <div className="absolute inset-0 bg-white rounded-2xl shadow-xl overflow-hidden z-20">
-                <div className="absolute inset-0 grid grid-cols-8 grid-rows-8">
-                  {Array(64).fill(0).map((_, i) => (
-                    <div key={i} className="overflow-hidden">
-                      <img 
-                        src={`https://source.unsplash.com/random/100x100?sig=${i}`} 
-                        alt="" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
+                <img 
+                  src="/lovable-uploads/7abc3b51-bf5d-40a2-92c0-87ad4dac02a6.png" 
+                  alt="Mosaic of Woman in Traditional Dress" 
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-mosaic-dark/70 via-transparent to-transparent flex items-end p-6">
                   <div className="text-white">
-                    <h3 className="text-xl font-bold font-display">Summer Memories</h3>
-                    <p className="text-sm text-white/80">Instagram Mosaic • 1000+ photos</p>
+                    <h3 className="text-xl font-bold font-display">Cultural Portrait</h3>
+                    <p className="text-sm text-white/80">Premium Mosaic • 1000+ photos</p>
                   </div>
                 </div>
               </div>
