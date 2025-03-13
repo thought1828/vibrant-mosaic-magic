@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Image, Grid3X3, FileImage, User, Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -15,6 +15,11 @@ import { LoginButton, SignupButton } from './auth/AuthDialogs';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
+  const location = useLocation();
+  
+  const isActive = (path: string) => {
+    return location.pathname === path ? "text-mosaic-purple font-medium" : "text-gray-700";
+  };
 
   return (
     <header className="w-full py-4 px-6 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
@@ -28,10 +33,10 @@ const Header = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link to="/templates" className="text-gray-700 hover:text-mosaic-purple transition-colors">Templates</Link>
-          <Link to="/pricing" className="text-gray-700 hover:text-mosaic-purple transition-colors">Pricing</Link>
-          <Link to="/gallery" className="text-gray-700 hover:text-mosaic-purple transition-colors">Gallery</Link>
-          <Link to="/help" className="text-gray-700 hover:text-mosaic-purple transition-colors">Help</Link>
+          <Link to="/templates" className={`${isActive("/templates")} hover:text-mosaic-purple transition-colors`}>Templates</Link>
+          <Link to="/pricing" className={`${isActive("/pricing")} hover:text-mosaic-purple transition-colors`}>Pricing</Link>
+          <Link to="/gallery" className={`${isActive("/gallery")} hover:text-mosaic-purple transition-colors`}>Gallery</Link>
+          <Link to="/help" className={`${isActive("/help")} hover:text-mosaic-purple transition-colors`}>Help</Link>
         </nav>
         
         {/* Desktop Action Buttons */}
@@ -56,16 +61,28 @@ const Header = () => {
             </DrawerTrigger>
             <DrawerContent className="bg-gradient-to-br from-white via-mosaic-lavender/10 to-white rounded-t-2xl p-4">
               <div className="flex flex-col space-y-4 mt-6">
-                <Link to="/templates" className="text-gray-700 hover:text-mosaic-purple transition-colors py-2 px-4 rounded-lg hover:bg-mosaic-lavender/20 font-medium">
+                <Link 
+                  to="/templates" 
+                  className={`${isActive("/templates")} hover:text-mosaic-purple transition-colors py-2 px-4 rounded-lg hover:bg-mosaic-lavender/20 font-medium`}
+                >
                   Templates
                 </Link>
-                <Link to="/pricing" className="text-gray-700 hover:text-mosaic-purple transition-colors py-2 px-4 rounded-lg hover:bg-mosaic-lavender/20 font-medium">
+                <Link 
+                  to="/pricing" 
+                  className={`${isActive("/pricing")} hover:text-mosaic-purple transition-colors py-2 px-4 rounded-lg hover:bg-mosaic-lavender/20 font-medium`}
+                >
                   Pricing
                 </Link>
-                <Link to="/gallery" className="text-gray-700 hover:text-mosaic-purple transition-colors py-2 px-4 rounded-lg hover:bg-mosaic-lavender/20 font-medium">
+                <Link 
+                  to="/gallery" 
+                  className={`${isActive("/gallery")} hover:text-mosaic-purple transition-colors py-2 px-4 rounded-lg hover:bg-mosaic-lavender/20 font-medium`}
+                >
                   Gallery
                 </Link>
-                <Link to="/help" className="text-gray-700 hover:text-mosaic-purple transition-colors py-2 px-4 rounded-lg hover:bg-mosaic-lavender/20 font-medium">
+                <Link 
+                  to="/help" 
+                  className={`${isActive("/help")} hover:text-mosaic-purple transition-colors py-2 px-4 rounded-lg hover:bg-mosaic-lavender/20 font-medium`}
+                >
                   Help
                 </Link>
                 
